@@ -15,11 +15,14 @@ class Zarinpal extends AdapterAbstract implements AdapterInterface
 {
     protected $paymentRequestEndPoint = "https://payment.zarinpal.com/pg/v4/payment/request.json";
     protected $paymentVerifyEndPoint = "https://payment.zarinpal.com/pg/v4/payment/verify.json";
+    protected $sandboxPaymentRequestEndPoint = "https://sandbox.zarinpal.com/pg/v4/payment/request.json";
+    protected $sandboxPaymentVerifyEndPoint = "https://sandbox.zarinpal.com/pg/v4/payment/verify.json";
+
 
 
     protected $endPoint = 'https://www.zarinpal.com/pg/StartPay/{authority}';
-    protected $zarinEndPoint = 'https://www.zarinpal.com/pg/StartPay/{authority}/ZarinGate';
-    protected $mobileEndPoint = 'https://www.zarinpal.com/pg/StartPay/{authority}/MobileGate';
+    protected $sandboxEndPoint = 'https://sandbox.zarinpal.com/pg/StartPay/{authority}';
+
 
     protected $testEndPoint = 'https://sandbox.banktest.ir/zarinpal/www.zarinpal.com/pg/StartPay/{authority}';
     protected $testPaymentRequestEndPoint = "https://sandbox.banktest.ir/zarinpal/api.zarinpal.com/pg/v4/payment/request.json";

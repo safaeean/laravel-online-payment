@@ -212,6 +212,8 @@ abstract class AdapterAbstract
     {
         if (config('larapay.mode') === 'production') {
             return $this->endPoint;
+        } else if (config('larapay.mode') === 'sandbox') {
+            return $this->sandboxEndPoint;
         } else {
             return $this->testEndPoint;
         }
@@ -224,6 +226,8 @@ abstract class AdapterAbstract
     {
         if (config('larapay.mode') === 'production') {
             return $this->paymentRequestEndPoint;
+        } else if (config('larapay.mode') === 'sandbox') {
+            return $this->sandboxPaymentRequestEndPoint;
         } else {
             return $this->testPaymentRequestEndPoint;
         }
@@ -236,6 +240,8 @@ abstract class AdapterAbstract
     {
         if (config('larapay.mode') === 'production') {
             return $this->paymentVerifyEndPoint;
+        } else if (config('larapay.mode') === 'sandbox') {
+            return $this->sandboxPaymentVerifyEndPoint;
         } else {
             return $this->testPaymentVerifyEndPoint;
         }
