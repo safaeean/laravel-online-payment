@@ -1,5 +1,5 @@
 {
-	"name": "php-monsters/laravel-online-payment",
+	"name": "safaeean/laravel-online-payment",
 	"description": "Iranian payment gateways handler for laravel applications",
 	"keywords": ["payment","shetab", "bank", "online payment", "gateway", "iran"],
 	"type": "library",
