@@ -27,7 +27,7 @@ return [
     | the gateways list is comma separated
     |
     */
-    'gateways' => env('LARAPAY_GATES', 'Mellat,Saman,Pasargad,Parsian,Zarinpal,Idpay,Payir,Saderat,Zibal,Nextpay'),
+    'gateways' => env('LARAPAY_GATES', 'Mellat,Saman,Pasargad,Parsian,Zarinpal,Idpay,Payir,Saderat,Zibal,Nextpay,Snapppay'),
 
     /*
     |--------------------------------------------------------------------------
@@ -127,6 +127,22 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | SnappPay.ir gateway configuration
+    |--------------------------------------------------------------------------
+    |
+    | api: For the sandbox gateway, set API to 'test'
+    |
+    */
+
+    'snapppay' => [
+        'username' => env('SNAPPPAY_USERNAME', ''),
+        'password' => env('SNAPPPAY_PASSWORD', ''),
+        'client_id' => env('SNAPPPAY_CLIENT_ID', ''),
+        'client_secret' => env('SNAPPPAY_CLIENT_SECRET', ''),
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
     | Idpay gateway configuration
     |--------------------------------------------------------------------------
     |
@@ -197,6 +213,13 @@ return [
                 ]
             ),
         ],
+    ],
+    'requuest_config' => [
+        'proxy' => [
+            'http' => '',
+            'https' => '',
+        ],
+        'verify' => false
     ],
 
     /*
