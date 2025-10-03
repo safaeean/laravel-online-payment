@@ -34,12 +34,17 @@ class Exception extends \PhpMonsters\Larapay\Exception
 				$message = 'larapay::larapay.'.$gate.'.errors.error_' . str_replace('-', '_', strval($message)); // fetch message from translation file
 				break;
 			}
+        }
 
-			case preg_match('/^larapay::/', $message) == 1 : {
-				$code = static::UNHANDLED_ERR;
-				$message = trans(strval($message)); // fetch message from translation file
-				break;
-			}
+
+		switch ($message)
+		{
+
+            case preg_match('/^larapay::/', $message) == 1 : {
+                $code = static::UNHANDLED_ERR;
+                $message = trans(strval($message)); // fetch message from translation file
+                break;
+            }
 		}
 
 		parent::__construct($message, $code, $previous);

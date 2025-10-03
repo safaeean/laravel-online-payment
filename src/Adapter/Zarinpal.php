@@ -66,7 +66,6 @@ class Zarinpal extends AdapterAbstract implements AdapterInterface
                 'Content-Type' => 'application/json',
             ])->post($this->getPaymentRequestEndpPoint(), $sendParams);
 
-            $response->throw();
 
             $result = $response->object();
 
@@ -79,7 +78,7 @@ class Zarinpal extends AdapterAbstract implements AdapterInterface
                     throw new Exception('no error provided and not 100');
                 }
             } else {
-                throw new Exception('code: ' . $result->errors->code . "\n" . 'message: ' . $result->errors->message);
+                throw new Exception($result->errors->code);
             }
         } catch (\Exception $e) {
             throw new Exception($e->getMessage());
