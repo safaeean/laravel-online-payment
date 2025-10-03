@@ -157,10 +157,26 @@ class LarapayTransaction extends Model implements TransactionInterface
         ]);
 
         if ($callback != null) {
-            $callbackRoute = route($callback, [
+            $params = [
                 'gateway'        => $this->gate_name,
                 'transaction_id' => $this->id,
-            ]);
+            ];
+
+            if (filter_var($callback, FILTER_VALIDATE_URL)) {
+                $parsedUrl = parse_url($callback);
+                $query = [];
+                if (isset($parsedUrl['query'])) {
+                    parse_str($parsedUrl['query'], $query);
+                }
+                $query = array_merge($query, $params);
+
+                $callbackRoute = $parsedUrl['scheme'].'://'.$parsedUrl['host']
+                    .(isset($parsedUrl['port']) ? ':'.$parsedUrl['port'] : '')
+                    .(isset($parsedUrl['path']) ? $parsedUrl['path'] : '')
+                    .'?'.http_build_query($query);
+            } else {
+                $callbackRoute = route($callback, $params);
+            }
         }
 
         $paymentParams = [
