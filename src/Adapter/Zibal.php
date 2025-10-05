@@ -32,7 +32,7 @@ class Zibal extends AdapterAbstract implements AdapterInterface
         $authority = $this->requestToken();
 
         return [
-            'endPoint' => strtr($this->getEndPoint(), ['{authority}' => $authority]),
+            'endPoint' => strtr($this->getEndPoint(), ['{trackId}' => $authority]),
         ];
     }
 
