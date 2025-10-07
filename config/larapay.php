@@ -204,8 +204,8 @@ return [
         'options'    => [
             'proxy_host'     => env('SOAP_PROXY_HOST', ''),
             'proxy_port'     => env('SOAP_PROXY_PORT', ''),
-            'login'          => env('SOAP_USERNAME', ''),   // 👈 یوزرنیم
-            'password'       => env('SOAP_PASSWORD', ''),   // 👈 پسورد
+            'proxy_login'          => env('SOAP_USERNAME', ''),   // 👈 یوزرنیم
+            'proxy_password'       => env('SOAP_PASSWORD', ''),   // 👈 پسورد
             'stream_context' => stream_context_create([
                 'ssl' => [
                     'verify_peer'      => false,
