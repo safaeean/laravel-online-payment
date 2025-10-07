@@ -199,19 +199,19 @@ return [
     | options: soapClient Options
     |
     */
-    'soap'   => [
+    'soap' => [
         'useOptions' => env('SOAP_HAS_OPTIONS', false),
         'options'    => [
             'proxy_host'     => env('SOAP_PROXY_HOST', ''),
             'proxy_port'     => env('SOAP_PROXY_PORT', ''),
-            'stream_context' => stream_context_create(
-                [
-                    'ssl' => [
-                        'verify_peer'      => false,
-                        'verify_peer_name' => false,
-                    ],
-                ]
-            ),
+            'login'          => env('SOAP_USERNAME', ''),   // 👈 یوزرنیم
+            'password'       => env('SOAP_PASSWORD', ''),   // 👈 پسورد
+            'stream_context' => stream_context_create([
+                'ssl' => [
+                    'verify_peer'      => false,
+                    'verify_peer_name' => false,
+                ],
+            ]),
         ],
     ],
     'requuest_config' => [
